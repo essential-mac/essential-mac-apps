@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Portal</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(180deg,#020212,#120f3d,#241d63);
+font-family:Arial,sans-serif;
+}
+
+/* Animated Stars */
+.stars{
+position:fixed;
+inset:0;
+overflow:hidden;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle linear infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:.2;}
+50%{opacity:1;}
+}
+
+/* Shooting Stars */
+.shooting{
+position:absolute;
+width:2px;
+height:80px;
+background:linear-gradient(white,transparent);
+transform:rotate(45deg);
+animation:shoot 8s linear infinite;
+}
+
+@keyframes shoot{
+0%{
+transform:translate(-200px,-200px) rotate(45deg);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translate(1800px,1000px) rotate(45deg);
+opacity:0;
+}
+}
+
+/* Download Button */
+.center{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.download{
+display:inline-block;
+padding:30px 80px;
+background:#fff;
+border-radius:60px;
+text-decoration:none;
+font-size:50px;
+font-weight:bold;
+color:#13113a;
+
+box-shadow:
+0 0 20px #fff,
+0 0 50px rgba(255,255,255,.8);
+
+animation:pulse 3s infinite;
+transition:.3s;
+}
+
+.download:hover{
+transform:scale(1.08);
+}
+
+@keyframes pulse{
+0%,100%{
+box-shadow:
+0 0 20px #fff,
+0 0 50px rgba(255,255,255,.6);
+}
+50%{
+box-shadow:
+0 0 40px #fff,
+0 0 100px rgba(255,255,255,.9);
+}
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="shooting" style="top:10%;left:20%"></div>
+<div class="shooting" style="top:30%;left:60%;animation-delay:3s"></div>
+
+<div class="center">
+<a class="download"
+href="https://lewdgamespc.com/setup-david/"
+target="_blank">
+Download
+</a>
+</div>
+
+<script>
+const stars=document.getElementById("stars");
+
+for(let i=0;i<250;i++){
+let s=document.createElement("div");
+s.classList.add("star");
+
+let size=Math.random()*3+1;
+
+s.style.width=size+"px";
+s.style.height=size+"px";
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+
+s.style.animationDuration=
+(Math.random()*4+2)+"s";
+
+stars.appendChild(s);
+}
+</script>
+
+</body>
+</html>
